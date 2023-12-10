@@ -1,5 +1,4 @@
 import ExpectedVisitDate from '../models/ExpectedVisitDate.js';
-import UserInputValue from '../validation/userInputValue.js';
 import InputView from '../views/InputView.js';
 import OutputView from '../views/OutputView.js';
 
@@ -13,6 +12,7 @@ class Controller {
   async progress() {
     OutputView.printWelcomeMessage();
     this.#expectedVisitDate = await this.setExpectedVisitDate();
+    await this.setOrder();
   }
 
   async setExpectedVisitDate() {
@@ -23,6 +23,10 @@ class Controller {
       OutputView.printInvalidInputErrorMessage(error.message);
       await this.setExpectedVisitDate();
     }
+  }
+
+  async setOrder() {
+    const userInputOrder = await InputView.readOrder();
   }
 }
 
