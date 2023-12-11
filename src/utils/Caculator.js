@@ -8,6 +8,10 @@ const Calculator = {
     });
     return totalAmount;
   },
+
+  calculateAfterSaleAmount(beforeSaleAmount, totalDiscount) {
+    return beforeSaleAmount - totalDiscount;
+  },
 };
 
 export default Calculator;

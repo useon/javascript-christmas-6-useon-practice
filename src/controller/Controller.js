@@ -28,6 +28,7 @@ class Controller {
     if (beforeSaleAmount >= 10000)
       this.discountProcess(this.#expectedVisitDate, this.#order, beforeSaleAmount);
     if (beforeSaleAmount < 10000) this.notDiscountProcess();
+    this.totalAmount(beforeSaleAmount, this.#totalDiscount);
   }
 
   async setExpectedVisitDate() {
@@ -66,6 +67,10 @@ class Controller {
     OutputView.printGiftMenu(hasGift);
     OutputView.printDisCountDetails(disCountDetails);
     OutputView.printTotalDiscount(this.#totalDiscount);
+  }
+
+  totalAmount(beforeSaleAmount, totalDiscount) {
+    const totalAmount = Calculator.calculateAfterSaleAmount(beforeSaleAmount, totalDiscount);
   }
 }
 
