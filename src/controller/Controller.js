@@ -1,5 +1,6 @@
 import ExpectedVisitDate from '../models/ExpectedVisitDate.js';
 import Order from '../models/Order.js';
+import Calculator from '../utils/Caculator.js';
 import InputView from '../views/InputView.js';
 import OutputView from '../views/OutputView.js';
 
@@ -18,6 +19,7 @@ class Controller {
     await this.setOrder();
     OutputView.printEventPreviewMessage(this.#expectedVisitDate);
     OutputView.printOrder(this.#order);
+    const beforeSaleAmount = Calculator.calculateBeforeSaleAmount(this.#order);
   }
 
   async setExpectedVisitDate() {
