@@ -21,6 +21,8 @@ class Controller {
     OutputView.printOrder(this.#order);
     const beforeSaleAmount = Calculator.calculateBeforeSaleAmount(this.#order);
     OutputView.printBeforeSaleAmount(beforeSaleAmount);
+    if (beforeSaleAmount >= 10000) this.discountProcess();
+    if (beforeSaleAmount < 10000) this.notDiscountProcess();
   }
 
   async setExpectedVisitDate() {
@@ -42,6 +44,10 @@ class Controller {
       await this.setOrder();
     }
   }
+
+  notDiscountProcess() {}
+
+  discountProcess() {}
 }
 
 export default Controller;
