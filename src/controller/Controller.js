@@ -28,7 +28,9 @@ class Controller {
     if (beforeSaleAmount >= 10000)
       this.discountProcess(this.#expectedVisitDate, this.#order, beforeSaleAmount);
     if (beforeSaleAmount < 10000) this.notDiscountProcess();
-    this.totalAmount(beforeSaleAmount, this.#totalDiscount);
+    beforeSaleAmount >= 120000
+      ? this.totalAmount(beforeSaleAmount, this.#totalDiscount - 25000)
+      : this.totalAmount(beforeSaleAmount, this.#totalDiscount);
     this.giveBadge();
   }
 
