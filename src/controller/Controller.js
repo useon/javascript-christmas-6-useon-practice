@@ -61,6 +61,7 @@ class Controller {
     this.#totalDiscount = totalDiscount;
     OutputView.printGiftMenu(hasGift);
     OutputView.printDisCountDetails(disCountDetails);
+    OutputView.printTotalDiscount(this.#totalDiscount);
   }
 }
 

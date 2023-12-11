@@ -34,10 +34,15 @@ const OutputView = {
     Console.print('\n<혜택 내역>');
     if (disCountDetails.size > 0) {
       disCountDetails.forEach((amount, type) => {
-        Console.print(`${type}: -${amount}원`);
+        Console.print(`${type}: -${amount.toLocaleString()}원`);
       });
     }
     if (disCountDetails.size === 0) Console.print('없음');
+  },
+
+  printTotalDiscount(amount) {
+    Console.print('\n<총혜택 내역>');
+    amount !== 0 ? Console.print(`-${amount.toLocaleString()}원`) : Console.print('0원');
   },
 };
 
