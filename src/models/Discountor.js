@@ -49,6 +49,12 @@ class Discountor {
     this.#disCountDetails.set('특별 할인', 1000);
   }
 
+  evnetPresentation(beforeSaleAmount) {
+    if (beforeSaleAmount >= 120000) {
+      this.#disCountDetails.set('증정 이벤트', 25000);
+    }
+  }
+
   get result() {
     return [this.#hasGift, this.#disCountDetails, this.#totalDiscount];
   }
