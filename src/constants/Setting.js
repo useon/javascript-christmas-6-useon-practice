@@ -20,4 +20,10 @@ const MENU_PRICE = new Map([
   ['샴페인', 25000],
 ]);
 
-export { TYPE_MENU, MENU_PRICE };
+const CALENDAR = new Map([
+  ['평일', [3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 17, 18, 19, 20, 21, 24, 25, 26, 27, 28, 31]],
+  ['주말', [1, 2, 8, 9, 15, 16, 22, 23, 29, 30]],
+  ['특별', [3, 10, 17, 24, 25, 31]],
+]);
+
+export { TYPE_MENU, MENU_PRICE, CALENDAR };

@@ -1,3 +1,4 @@
+import Discountor from '../models/Discountor.js';
 import ExpectedVisitDate from '../models/ExpectedVisitDate.js';
 import Order from '../models/Order.js';
 import Calculator from '../utils/Caculator.js';
@@ -9,8 +10,11 @@ class Controller {
 
   #order;
 
+  #totalDiscount;
+
   constructor() {
     this.#expectedVisitDate = 0;
+    this.#totalDiscount = 0;
   }
 
   async progress() {
@@ -21,7 +25,8 @@ class Controller {
     OutputView.printOrder(this.#order);
     const beforeSaleAmount = Calculator.calculateBeforeSaleAmount(this.#order);
     OutputView.printBeforeSaleAmount(beforeSaleAmount);
-    if (beforeSaleAmount >= 10000) this.discountProcess();
+    if (beforeSaleAmount >= 10000)
+      this.discountProcess(this.#expectedVisitDate, this.#order, beforeSaleAmount);
     if (beforeSaleAmount < 10000) this.notDiscountProcess();
   }
 
@@ -47,7 +52,10 @@ class Controller {
 
   notDiscountProcess() {}
 
-  discountProcess() {}
+  discountProcess() {
+    const [hasGift, disCountDetails, totalDiscount] = Discountor.result;
+    this.#totalDiscount = totalDiscount;
+  }
 }
 
 export default Controller;
