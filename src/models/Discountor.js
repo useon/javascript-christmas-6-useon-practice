@@ -59,6 +59,10 @@ class Discountor {
     this.#disCountDetails.get('증정 이벤트') ? (this.#hasGift = true) : (this.#hasGift = false);
   }
 
+  calculateTotalDiscount() {
+    this.#totalDiscount = [...this.#disCountDetails.values()].reduce((a, b) => a + b, 0);
+  }
+
   get result() {
     return [this.#hasGift, this.#disCountDetails, this.#totalDiscount];
   }
