@@ -44,6 +44,11 @@ const OutputView = {
     Console.print('\n<총혜택 금액>');
     amount !== 0 ? Console.print(`-${amount.toLocaleString()}원`) : Console.print('0원');
   },
+
+  printAfterSaleAmount(amount) {
+    Console.print('\n<할인 후 예상 결제 금액>');
+    Console.print(`${amount.toLocaleString()}원`);
+  },
 };
 
 export default OutputView;

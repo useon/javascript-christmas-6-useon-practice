@@ -71,6 +71,7 @@ class Controller {
 
   totalAmount(beforeSaleAmount, totalDiscount) {
     const totalAmount = Calculator.calculateAfterSaleAmount(beforeSaleAmount, totalDiscount);
+    OutputView.printAfterSaleAmount(totalAmount);
   }
 }
 
