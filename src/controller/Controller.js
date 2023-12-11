@@ -29,6 +29,7 @@ class Controller {
       this.discountProcess(this.#expectedVisitDate, this.#order, beforeSaleAmount);
     if (beforeSaleAmount < 10000) this.notDiscountProcess();
     this.totalAmount(beforeSaleAmount, this.#totalDiscount);
+    this.giveBadge();
   }
 
   async setExpectedVisitDate() {
@@ -72,6 +73,15 @@ class Controller {
   totalAmount(beforeSaleAmount, totalDiscount) {
     const totalAmount = Calculator.calculateAfterSaleAmount(beforeSaleAmount, totalDiscount);
     OutputView.printAfterSaleAmount(totalAmount);
+  }
+
+  giveBadge() {
+    if (this.#totalDiscount < 5000) return OutputView.printBadge('없음');
+    if (this.#totalDiscount >= 5000 && this.#totalDiscount < 10000)
+      return OutputView.printBadge('별');
+    if (this.#totalDiscount >= 10000 && this.#totalDiscount < 20000)
+      return OutputView.printBadge('트리');
+    if (this.#totalDiscount >= 20000) return OutputView.printBadge('산타');
   }
 }
 
