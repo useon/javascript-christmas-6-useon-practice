@@ -21,8 +21,13 @@ const OutputView = {
   },
 
   printBeforeSaleAmount(amount) {
-    Console.print('<할인 전 총주문 금액>');
-    Console.print(amount.toLocaleString());
+    Console.print('\n<할인 전 총주문 금액>');
+    Console.print(`${amount.toLocaleString()}원`);
+  },
+
+  printGiftMenu(hasGift) {
+    Console.print('\n<증정 메뉴>');
+    hasGift ? Console.print('샴페인 1개') : Console.print('없음');
   },
 };
 

@@ -59,6 +59,7 @@ class Controller {
       beforeSaleAmount,
     ).result;
     this.#totalDiscount = totalDiscount;
+    OutputView.printGiftMenu(hasGift);
   }
 }
 
