@@ -20,6 +20,7 @@ class Controller {
     OutputView.printEventPreviewMessage(this.#expectedVisitDate);
     OutputView.printOrder(this.#order);
     const beforeSaleAmount = Calculator.calculateBeforeSaleAmount(this.#order);
+    OutputView.printBeforeSaleAmount(beforeSaleAmount);
   }
 
   async setExpectedVisitDate() {
