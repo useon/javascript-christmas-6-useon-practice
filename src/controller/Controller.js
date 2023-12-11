@@ -50,7 +50,11 @@ class Controller {
     }
   }
 
-  notDiscountProcess() {}
+  notDiscountProcess() {
+    OutputView.printGiftMenu(false);
+    OutputView.printDisCountDetails(new Map());
+    OutputView.printTotalDiscount(0);
+  }
 
   discountProcess(expectedVisitDate, order, beforeSaleAmount) {
     const [hasGift, disCountDetails, totalDiscount] = new Discountor(
