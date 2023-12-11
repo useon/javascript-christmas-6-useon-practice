@@ -29,6 +29,14 @@ class Discountor {
     this.#disCountDetails.set('크리스마스 디데이 할인', discount);
   }
 
+  discountWeekdays(order) {
+    let dessertCount = 0;
+    order.forEach((count, menu) => {
+      if (TYPE_MENU.get('디저트').includes(menu)) dessertCount += 1;
+    });
+    if (dessertCount > 0) this.#disCountDetails.set('평일 할인', 2023 * dessertCount);
+  }
+
   get result() {
     return [this.#hasGift, this.#disCountDetails, this.#totalDiscount];
   }
