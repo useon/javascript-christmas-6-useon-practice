@@ -17,6 +17,7 @@ class Controller {
     this.#expectedVisitDate = await this.setExpectedVisitDate();
     await this.setOrder();
     OutputView.printEventPreviewMessage(this.#expectedVisitDate);
+    OutputView.printOrder(this.#order);
   }
 
   async setExpectedVisitDate() {

@@ -12,6 +12,13 @@ const OutputView = {
   printEventPreviewMessage(expectedVisitDate) {
     Console.print(`12월 ${expectedVisitDate}일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!\n`);
   },
+
+  printOrder(order) {
+    Console.print('<주문 메뉴>');
+    order.forEach((count, menu) => {
+      Console.print(`${menu} ${count}개`);
+    });
+  },
 };
 
 export default OutputView;
