@@ -45,6 +45,10 @@ class Discountor {
     if (mainCount > 0) this.#disCountDetails.set('주말 할인', mainCount * 2023);
   }
 
+  discountSpecialDay() {
+    this.#disCountDetails.set('특별 할인', 1000);
+  }
+
   get result() {
     return [this.#hasGift, this.#disCountDetails, this.#totalDiscount];
   }
