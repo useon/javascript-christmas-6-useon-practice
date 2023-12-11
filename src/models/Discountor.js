@@ -1,4 +1,4 @@
-import { CALENDAR, TYPE_MENU } from '../constants/Setting';
+import { CALENDAR, TYPE_MENU } from '../constants/Setting.js';
 
 class Discountor {
   #hasGift;
@@ -7,11 +7,11 @@ class Discountor {
 
   #totalDiscount;
 
-  constructor() {
+  constructor(expectedVisitDate, order, beforeSaleAmount) {
     this.#hasGift = false;
     this.#disCountDetails = new Map();
     this.#totalDiscount = 0;
-    this.checkDiscountType();
+    this.checkDiscountType(expectedVisitDate, order, beforeSaleAmount);
     this.setGift();
     this.calculateTotalDiscount();
   }

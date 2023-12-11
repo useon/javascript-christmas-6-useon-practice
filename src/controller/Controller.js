@@ -52,8 +52,12 @@ class Controller {
 
   notDiscountProcess() {}
 
-  discountProcess() {
-    const [hasGift, disCountDetails, totalDiscount] = Discountor.result;
+  discountProcess(expectedVisitDate, order, beforeSaleAmount) {
+    const [hasGift, disCountDetails, totalDiscount] = new Discountor(
+      expectedVisitDate,
+      order,
+      beforeSaleAmount,
+    ).result;
     this.#totalDiscount = totalDiscount;
   }
 }
