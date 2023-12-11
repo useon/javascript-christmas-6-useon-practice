@@ -24,6 +24,11 @@ class Discountor {
     this.evnetPresentation(beforeSaleAmount);
   }
 
+  discountChristmas(expectedVisitDate) {
+    const discount = (expectedVisitDate - 1) * 100 + 1000;
+    this.#disCountDetails.set('크리스마스 디데이 할인', discount);
+  }
+
   get result() {
     return [this.#hasGift, this.#disCountDetails, this.#totalDiscount];
   }
