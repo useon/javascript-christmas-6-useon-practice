@@ -41,7 +41,7 @@ const OutputView = {
   },
 
   printTotalDiscount(amount) {
-    Console.print('\n<총혜택 내역>');
+    Console.print('\n<총혜택 금액>');
     amount !== 0 ? Console.print(`-${amount.toLocaleString()}원`) : Console.print('0원');
   },
 };
