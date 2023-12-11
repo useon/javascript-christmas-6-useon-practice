@@ -55,6 +55,10 @@ class Discountor {
     }
   }
 
+  setGift() {
+    this.#disCountDetails.get('증정 이벤트') ? (this.#hasGift = true) : (this.#hasGift = false);
+  }
+
   get result() {
     return [this.#hasGift, this.#disCountDetails, this.#totalDiscount];
   }
