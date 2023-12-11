@@ -60,6 +60,7 @@ class Controller {
     ).result;
     this.#totalDiscount = totalDiscount;
     OutputView.printGiftMenu(hasGift);
+    OutputView.printDisCountDetails(disCountDetails);
   }
 }
 

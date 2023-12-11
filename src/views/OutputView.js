@@ -29,6 +29,16 @@ const OutputView = {
     Console.print('\n<증정 메뉴>');
     hasGift ? Console.print('샴페인 1개') : Console.print('없음');
   },
+
+  printDisCountDetails(disCountDetails) {
+    Console.print('\n<혜택 내역>');
+    if (disCountDetails.size > 0) {
+      disCountDetails.forEach((amount, type) => {
+        Console.print(`${type}: -${amount}원`);
+      });
+    }
+    if (disCountDetails.size === 0) Console.print('없음');
+  },
 };
 
 export default OutputView;
