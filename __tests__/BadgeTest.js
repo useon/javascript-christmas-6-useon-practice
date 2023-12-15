@@ -1,4 +1,4 @@
-import Badge from '../src/models/Badge';
+import Badge from '../src/models/Badge.js';
 
 describe('뱃지 테스트', () => {
   test('금액에 따른 뱃지를 확인', async () => {
