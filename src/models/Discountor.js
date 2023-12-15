@@ -62,8 +62,9 @@ class Discountor {
   evnetPresentation(beforeSaleAmount) {
     if (beforeSaleAmount >= 120000) {
       this.#disCountDetails.set('증정 이벤트', 25000);
+      return 25000;
     }
-    return 25000;
+    return 0;
   }
 
   setGift() {
