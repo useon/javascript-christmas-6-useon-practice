@@ -8,6 +8,6 @@ describe('방문예상날짜 테스트', () => {
   test('방문날짜가 올바르지 않을 때 에러확인', async () => {
     expect(() => {
       new ExpectedVisitDate('0');
-    }).toThrow('[ERROR]');
+    }).toThrow('[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.');
   });
 });
