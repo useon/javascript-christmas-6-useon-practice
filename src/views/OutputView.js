@@ -54,6 +54,10 @@ const OutputView = {
     Console.print('\n<12월 이벤트 배지>');
     Console.print(name);
   },
+
+  printErrorMessage(message) {
+    Console.print(message);
+  },
 };
 
 export default OutputView;

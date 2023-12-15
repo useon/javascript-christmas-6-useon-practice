@@ -2,6 +2,7 @@ import Discountor from '../models/Discountor.js';
 import ExpectedVisitDate from '../models/ExpectedVisitDate.js';
 import Order from '../models/Order.js';
 import Calculator from '../utils/Caculator.js';
+import handlerErrorAndProceed from '../utils/handleErrorAndProceed.js';
 import InputView from '../views/InputView.js';
 import OutputView from '../views/OutputView.js';
 
@@ -19,8 +20,8 @@ class Controller {
 
   async progress() {
     OutputView.printWelcomeMessage();
-    this.#expectedVisitDate = await this.setExpectedVisitDate();
-    await this.setOrder();
+    this.#expectedVisitDate = await handlerErrorAndProceed(this.setExpectedVisitDate);
+    this.#order = await handlerErrorAndProceed(this.setOrder);
     OutputView.printEventPreviewMessage(this.#expectedVisitDate);
     OutputView.printOrder(this.#order);
     const beforeSaleAmount = Calculator.calculateBeforeSaleAmount(this.#order);
@@ -35,23 +36,13 @@ class Controller {
   }
 
   async setExpectedVisitDate() {
-    try {
-      const userInputExpectedVisitDate = await InputView.readExpectedVisitDate();
-      return new ExpectedVisitDate(userInputExpectedVisitDate).Date;
-    } catch (error) {
-      OutputView.printInvalidInputErrorMessage(error.message);
-      await this.setExpectedVisitDate();
-    }
+    const userInputExpectedVisitDate = await InputView.readExpectedVisitDate();
+    return new ExpectedVisitDate(userInputExpectedVisitDate).Date;
   }
 
   async setOrder() {
-    try {
-      const userInputOrder = await InputView.readOrder();
-      this.#order = new Order(userInputOrder).order;
-    } catch (error) {
-      OutputView.printInvalidInputErrorMessage(error.message);
-      await this.setOrder();
-    }
+    const userInputOrder = await InputView.readOrder();
+    return new Order(userInputOrder).order;
   }
 
   notDiscountProcess() {

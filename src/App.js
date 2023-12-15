@@ -6,7 +6,7 @@ class App {
   }
 
   async run() {
-    this.controller.progress();
+    await this.controller.progress();
   }
 }
 
