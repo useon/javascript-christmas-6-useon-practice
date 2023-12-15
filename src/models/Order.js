@@ -8,11 +8,11 @@ class Order {
     this.#order = new Map();
     const orderStringToArr = Converter.orderStringToArr(inputValue);
     const orderMap = Converter.orderArrToMap(orderStringToArr);
-    this.validate(orderStringToArr, orderMap);
+    this.#validate(orderStringToArr, orderMap);
     this.#order = orderMap;
   }
 
-  validate(orderStringToArr, orderMap) {
+  #validate(orderStringToArr, orderMap) {
     const notHasDashArr = Converter.notHasDash(orderStringToArr);
     OrderValidator.checkHasDash(notHasDashArr);
     const notExistantMenuArr = Converter.notExistantMenu(orderMap);
