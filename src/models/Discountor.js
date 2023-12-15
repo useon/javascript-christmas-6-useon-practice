@@ -25,8 +25,9 @@ class Discountor {
   }
 
   discountChristmas(expectedVisitDate) {
-    const discount = (expectedVisitDate - 1) * 100 + 1000;
-    this.#disCountDetails.set('크리스마스 디데이 할인', discount);
+    const christmasDiscount = (expectedVisitDate - 1) * 100 + 1000;
+    this.#disCountDetails.set('크리스마스 디데이 할인', christmasDiscount);
+    return christmasDiscount;
   }
 
   discountWeekdays(order) {
@@ -34,7 +35,11 @@ class Discountor {
     order.forEach((count, menu) => {
       if (TYPE_MENU.get('디저트').includes(menu)) dessertCount += count;
     });
-    if (dessertCount > 0) this.#disCountDetails.set('평일 할인', 2023 * dessertCount);
+    if (dessertCount > 0) {
+      this.#disCountDetails.set('평일 할인', 2023 * dessertCount);
+      return 2023 * dessertCount;
+    }
+    return 0;
   }
 
   discountweekends(order) {
@@ -42,17 +47,23 @@ class Discountor {
     order.forEach((count, menu) => {
       if (TYPE_MENU.get('메인').includes(menu)) mainCount += count;
     });
-    if (mainCount > 0) this.#disCountDetails.set('주말 할인', mainCount * 2023);
+    if (mainCount > 0) {
+      this.#disCountDetails.set('주말 할인', mainCount * 2023);
+      return mainCount * 2023;
+    }
+    return 0;
   }
 
   discountSpecialDay() {
     this.#disCountDetails.set('특별 할인', 1000);
+    return 1000;
   }
 
   evnetPresentation(beforeSaleAmount) {
     if (beforeSaleAmount >= 120000) {
       this.#disCountDetails.set('증정 이벤트', 25000);
     }
+    return 25000;
   }
 
   setGift() {
